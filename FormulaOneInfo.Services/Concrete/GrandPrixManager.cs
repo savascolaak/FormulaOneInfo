@@ -134,6 +134,7 @@ namespace FormulaOneInfo.Services.Concrete
                 grandPrix.City = grandPrixUpdateDto.City;
                 grandPrix.GrandPrixDate = grandPrixUpdateDto.GrandPrixDate;                
                 grandPrix.IsActive = grandPrixUpdateDto.IsActive;
+                grandPrix.ModifiedDate = DateTime.Now;
                 await _unitOfWork.GrandPrixes.UpdateAsync(grandPrix).ContinueWith(t=>_unitOfWork.SaveAsync());
                 return new Shared.Utilities.Result.Concrete.Result(ResultStatus.Success, $"{grandPrixUpdateDto.Name} Adlı Grande premio güncellendi");
             }

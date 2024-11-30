@@ -18,6 +18,5 @@ namespace FormulaOneInfo.Services.Abstract
         Task<IResult> Update(PilotUpdateDto pilotUpdateDto, string modifiedByName);
         Task<IResult> Delete(int pilotId,string modifiedByName);
         Task<IResult> HardDelete(int pilotId, string modifiedByName);
-
     }
 }
