@@ -132,8 +132,7 @@ namespace FormulaOneInfo.Services.Concrete
                 grandPrix.Track = grandPrixUpdateDto.Track;
                 grandPrix.Country = grandPrixUpdateDto.Country;
                 grandPrix.City = grandPrixUpdateDto.City;
-                grandPrix.GrandPrixDate = grandPrixUpdateDto.GrandPrixDate;
-                grandPrix.SeasonId = grandPrixUpdateDto.SeasonId;
+                grandPrix.GrandPrixDate = grandPrixUpdateDto.GrandPrixDate;                
                 grandPrix.IsActive = grandPrixUpdateDto.IsActive;
                 await _unitOfWork.GrandPrixes.UpdateAsync(grandPrix).ContinueWith(t=>_unitOfWork.SaveAsync());
                 return new Shared.Utilities.Result.Concrete.Result(ResultStatus.Success, $"{grandPrixUpdateDto.Name} Adlı Grande premio güncellendi");
