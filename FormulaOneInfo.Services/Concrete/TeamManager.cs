@@ -1,4 +1,5 @@
-﻿using FormulaOneInfo.Data.Concrete.EntityFramework;
+﻿using FormulaOneInfo.Data.Abstract;
+using FormulaOneInfo.Data.Concrete.EntityFramework;
 using FormulaOneInfo.Entities.Concrete;
 using FormulaOneInfo.Entities.Dtos.PilotDtos;
 using FormulaOneInfo.Entities.Dtos.TeamDtos;
@@ -16,8 +17,8 @@ namespace FormulaOneInfo.Services.Concrete
 {
     public class TeamManager : ITeamService
     {
-        private readonly UnitOfWork _unitOfWork;
-        public TeamManager(UnitOfWork unitOfWork)
+        private readonly IUnitOfWork _unitOfWork;
+        public TeamManager(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }

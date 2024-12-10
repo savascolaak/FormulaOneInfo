@@ -48,8 +48,8 @@ namespace FormulaOneInfo.Api.Controllers
                 return BadRequest();
         }
         [HttpGet]
-        [ActionName("GetPilotByNonDeleted")]
-        public async Task<IActionResult> GetPilotByNonDeleted(int id)
+        [ActionName("GetPilotsByNonDeleted")]
+        public async Task<IActionResult> GetPilotsByNonDeleted(int id)
         {
             var pilots = await _pilotService.GetAllByNonDeleted();
             if (pilots.ResultStatus == ResultStatus.Success)
@@ -60,8 +60,8 @@ namespace FormulaOneInfo.Api.Controllers
                 return BadRequest();
         }
         [HttpGet]
-        [ActionName("GetPilotByNonAndActive")]
-        public async Task<IActionResult> GetPilotByNonAndActive()
+        [ActionName("GetPilotsByNonAndActive")]
+        public async Task<IActionResult> GetPilotsByNonAndActive()
         {
             var pilots = await _pilotService.GetAllByNonDeletedAndActive();
             if (pilots.ResultStatus == ResultStatus.Success)
