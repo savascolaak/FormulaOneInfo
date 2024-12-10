@@ -15,9 +15,9 @@ namespace FormulaOneInfo.Api.Controllers
     [ApiController]
     public class PilotController : ControllerBase
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IPilotService _pilotService;
-        public PilotController(UnitOfWork unitOfWork)
+        public PilotController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
             _pilotService = new PilotManager(_unitOfWork);

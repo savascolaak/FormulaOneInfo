@@ -1,4 +1,5 @@
-﻿using FormulaOneInfo.Data.Concrete.EntityFramework;
+﻿using FormulaOneInfo.Data.Abstract;
+using FormulaOneInfo.Data.Concrete.EntityFramework;
 using FormulaOneInfo.Entities.Concrete;
 using FormulaOneInfo.Entities.Dtos.GrandPrixDtos;
 using FormulaOneInfo.Entities.Dtos.PilotDtos;
@@ -16,8 +17,8 @@ namespace FormulaOneInfo.Services.Concrete
 {
     public class PilotManager : IPilotService
     {
-        private readonly UnitOfWork _unitOfWork;
-        public PilotManager(UnitOfWork unitOfWork)
+        private readonly IUnitOfWork _unitOfWork;
+        public PilotManager(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
