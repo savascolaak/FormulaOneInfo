@@ -21,7 +21,7 @@ namespace FormulaOneInfo.Services.Concrete
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<IResult> Add(SeasonAddDto seasonAddDto, string createdByName)
+        public async Task<IResult> Add(SeasonAddDto seasonAddDto)
         {
             await _unitOfWork.Seasons.AddAsync(new Season
             {
@@ -40,7 +40,7 @@ namespace FormulaOneInfo.Services.Concrete
         }
 
 
-        public async Task<IResult> Delete(int seasonId, string modifiedByName)
+        public async Task<IResult> Delete(int seasonId)
         {
             var season = await _unitOfWork.Seasons.GetAsync(x=>x.Id == seasonId);
             if(season != null)
@@ -66,7 +66,7 @@ namespace FormulaOneInfo.Services.Concrete
             return new DataResult<SeasonDto>(ResultStatus.Error,"Böyle bir season kaydı bulunamadı",null);
         }
 
-        public async Task<IDataResult<SeasonListDto>> GetAll()
+        public async Task<IDataResult<SeasonListDto>> GetAll() 
         {
             var seasons = await _unitOfWork.Seasons.GetAllAsync(null,x=>x.GrandPrixes);
             if(seasons.Count() > -1)
@@ -108,7 +108,7 @@ namespace FormulaOneInfo.Services.Concrete
             return new DataResult<SeasonListDto>(ResultStatus.Error, "Böyle bir sezon listesi bulunamadı", null);
         }
 
-        public async Task<IResult> HardDelete(int seasonId, string modifiedByName)
+        public async Task<IResult> HardDelete(int seasonId)
         {
             var season = await _unitOfWork.Seasons.GetAsync(x => x.Id == seasonId);
             if(season != null)
@@ -119,7 +119,7 @@ namespace FormulaOneInfo.Services.Concrete
             return new Shared.Utilities.Result.Concrete.Result(ResultStatus.Error, $"{season.Name} Adlı Db'den seasone Premio bulunamadı", null);
         }
 
-        public async Task<IResult> Update(SeasonUpdateDto seasonUpdateDto, string createdByName)
+        public async Task<IResult> Update(SeasonUpdateDto seasonUpdateDto)
         {
             var season = await _unitOfWork.Seasons.GetAsync(x=>x.Id == seasonUpdateDto.Id);
             if (season != null) 

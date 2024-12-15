@@ -14,9 +14,9 @@ namespace FormulaOneInfo.Services.Abstract
         Task<IDataResult<SeasonListDto>> GetAll();
         Task<IDataResult<SeasonListDto>> GetAllByNonDeleted();
         Task<IDataResult<SeasonListDto>> GetAllByNonDeletedAndActive();
-        Task<IResult> Add(SeasonAddDto seasonAddDto, string createdByName);
-        Task<IResult> Update(SeasonUpdateDto seasonUpdateDto, string createdByName);
-        Task<IResult> Delete(int seasonId, string modifiedByName);
-        Task<IResult> HardDelete(int seasonId,string modifiedByName);
+        Task<IResult> Add(SeasonAddDto seasonAddDto);
+        Task<IResult> Update(SeasonUpdateDto seasonUpdateDto);
+        Task<IResult> Delete(int seasonId);
+        Task<IResult> HardDelete(int seasonId);
     }
 }
