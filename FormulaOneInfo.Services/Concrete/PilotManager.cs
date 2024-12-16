@@ -30,6 +30,7 @@ namespace FormulaOneInfo.Services.Concrete
                 LastName = pilotAddDto.LastName,
                 Thumbnail = pilotAddDto.Thumbnail,
                 DateOfBirth = pilotAddDto.DateOfBirth,
+                Nationality = pilotAddDto.Nationality,
                 IsActive = pilotAddDto.IsActive,
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now,
@@ -127,6 +128,7 @@ namespace FormulaOneInfo.Services.Concrete
                 pilot.FirstName = pilotUpdateDto.FirstName;
                 pilot.LastName = pilotUpdateDto.LastName;
                 pilot.Thumbnail = pilotUpdateDto.Thumbnail;
+                pilot.Nationality = pilotUpdateDto.Nationality;
                 pilot.DateOfBirth = pilotUpdateDto.DateOfBirth;
                 pilot.IsActive = pilotUpdateDto.IsActive;
                 await _unitOfWork.Pilots.UpdateAsync(pilot).ContinueWith(x => _unitOfWork.SaveAsync());

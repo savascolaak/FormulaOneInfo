@@ -13,6 +13,7 @@ namespace FormulaOneInfo.Entities.Concrete
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Thumbnail { get; set; }
+        public string Nationality { get; set; }
         //public int SeasonId { get; set; }
         //public Season Season { get; set; }
         public ICollection<Result> Results { get; set; }

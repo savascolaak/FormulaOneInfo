@@ -26,7 +26,9 @@ namespace FormulaOneInfo.Data.Concrete.EntityFramework.Mappings
             builder.Property(x => x.IsActive).IsRequired();
             builder.Property(x => x.IsDeleted).IsRequired();
             builder.Property(x => x.Note).IsRequired(false);
-            builder.Property(x => x.Note).HasMaxLength(500);
+            builder.Property(x => x.Nationality).IsRequired(true);
+            builder.Property(x => x.Nationality).HasMaxLength(100);
+            builder.Property(x => x.Note).HasMaxLength(500);           
             builder.ToTable("Pilots");
             builder.HasData(new Pilot
             {
@@ -39,6 +41,7 @@ namespace FormulaOneInfo.Data.Concrete.EntityFramework.Mappings
                 ModifiedDate = DateTime.Now,
                 IsDeleted = false,
                 IsActive = true,
+                Nationality = "UK",
                 Note = "Lewis Hamilton İngiliz Pilot"
 
             });
