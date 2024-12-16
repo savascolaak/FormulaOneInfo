@@ -14,10 +14,10 @@ namespace FormulaOneInfo.Services.Abstract
         Task<IDataResult<GrandPrixListDto>> GetAll();
         Task<IDataResult<GrandPrixListDto>> GetAllByNonDeleted();
         Task<IDataResult<GrandPrixListDto>> GetAllByNonDeletedAndActive();
-        Task<IResult> Add(GrandPrixAddDto grandPrixAddDto, string createdByName);
-        Task<IResult> Update(GrandPrixUpdateDto grandPrixUpdateDto, string modifiedByName);
-        Task<IResult> Delete(int grandPrixId,string modifiedByName);
-        Task<IResult> HardDelete(int grandPrixId, string modifiedByName);
+        Task<IResult> Add(GrandPrixAddDto grandPrixAddDto);
+        Task<IResult> Update(GrandPrixUpdateDto grandPrixUpdateDto);
+        Task<IResult> Delete(int grandPrixId);
+        Task<IResult> HardDelete(int grandPrixId);
 
     }
 }

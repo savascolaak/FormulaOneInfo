@@ -20,7 +20,7 @@ namespace FormulaOneInfo.Services.Concrete
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<IResult> Add(GrandPrixAddDto grandPrixAddDto, string createdByName)
+        public async Task<IResult> Add(GrandPrixAddDto grandPrixAddDto)
         {
             await _unitOfWork.GrandPrixes.AddAsync(new GrandPrix
             {
@@ -40,7 +40,7 @@ namespace FormulaOneInfo.Services.Concrete
             return new Shared.Utilities.Result.Concrete.Result(ResultStatus.Success,$"{grandPrixAddDto.Name} is Added");
         }
 
-        public async Task<IResult> Delete(int grandPrixId, string modifiedByName)
+        public async Task<IResult> Delete(int grandPrixId)
         {
             var grandPrix = await _unitOfWork.GrandPrixes.GetAsync(x=>x.Id == grandPrixId);
             if(grandPrix != null)
@@ -112,7 +112,7 @@ namespace FormulaOneInfo.Services.Concrete
             return new DataResult<GrandPrixListDto>(ResultStatus.Error, "Böyle bir kayıt bulunamadı", null);
         }
 
-        public async Task<IResult> HardDelete(int grandPrixId, string modifiedByName)
+        public async Task<IResult> HardDelete(int grandPrixId)
         {
             var grandPrix = await _unitOfWork.GrandPrixes.GetAsync(x=>x.Id == grandPrixId);
             if(grandPrix != null)
@@ -123,7 +123,7 @@ namespace FormulaOneInfo.Services.Concrete
             return new Shared.Utilities.Result.Concrete.Result(ResultStatus.Error, $"{grandPrix.Name} Adlı Db'den Grande Premio bulunamadı",null);
         }
 
-        public async Task<IResult> Update(GrandPrixUpdateDto grandPrixUpdateDto, string modifiedByName)
+        public async Task<IResult> Update(GrandPrixUpdateDto grandPrixUpdateDto)
         {
             var grandPrix = await _unitOfWork.GrandPrixes.GetAsync(x => x.Id == grandPrixUpdateDto.Id);
             if(grandPrix != null)
