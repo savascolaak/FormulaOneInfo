@@ -22,7 +22,7 @@ namespace FormulaOneInfo.Services.Concrete
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<IResult> Add(TeamAddDto teamAddDto, string createdByName)
+        public async Task<IResult> Add(TeamAddDto teamAddDto)
         {
             await _unitOfWork.Teams.AddAsync(new Team
             {
@@ -38,7 +38,7 @@ namespace FormulaOneInfo.Services.Concrete
             return new Shared.Utilities.Result.Concrete.Result(ResultStatus.Success, $"{teamAddDto.Name} is Added");
         }
 
-        public async Task<IResult> Delete(int teamId, string modifiedByName)
+        public async Task<IResult> Delete(int teamId)
         {
             var team = await _unitOfWork.Teams.GetAsync(x => x.Id == teamId);
             if (team != null)
@@ -108,7 +108,7 @@ namespace FormulaOneInfo.Services.Concrete
             return new DataResult<TeamListDto>(ResultStatus.Error, "Böyle bir team kayıt bulunamadı", null);
         }
 
-        public async Task<IResult> HardDelete(int teamId, string modifiedByName)
+        public async Task<IResult> HardDelete(int teamId)
         {
             var team = await _unitOfWork.Teams.GetAsync(x => x.Id == teamId);
             if (team != null)
@@ -119,7 +119,7 @@ namespace FormulaOneInfo.Services.Concrete
             return new Shared.Utilities.Result.Concrete.Result(ResultStatus.Error, $"{team.Name} Adlı Db'den Team bulunamadı", null);
         }
 
-        public async Task<IResult> Update(TeamUpdateDto teamUpdateDto, string modifiedByName)
+        public async Task<IResult> Update(TeamUpdateDto teamUpdateDto)
         {
             var team = await _unitOfWork.Teams.GetAsync(x => x.Id == teamUpdateDto.Id);
             if (team != null) 

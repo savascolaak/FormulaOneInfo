@@ -1,17 +1,11 @@
 ﻿using FormulaOneInfo.Data.Abstract;
-using FormulaOneInfo.Data.Concrete.EntityFramework;
 using FormulaOneInfo.Entities.Concrete;
-using FormulaOneInfo.Entities.Dtos.GrandPrixDtos;
 using FormulaOneInfo.Entities.Dtos.PilotDtos;
 using FormulaOneInfo.Services.Abstract;
 using FormulaOneInfo.Shared.Utilities.Result.Abstract;
 using FormulaOneInfo.Shared.Utilities.Result.ComplexTypes;
 using FormulaOneInfo.Shared.Utilities.Result.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace FormulaOneInfo.Services.Concrete
 {
